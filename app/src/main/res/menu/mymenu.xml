@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<item
+    android:title="Dashboard"
+    android:id="@+id/item1"
+    android:icon="@drawable/ic_baseline_home_24"
+    />
+   <item android:title="Company Setting">
+               <menu>
+                   <item
+                       android:title="Company Profile"
+                       android:id="@+id/item2"
+                       />
+               </menu>
+   </item>
+    <item android:title="Inventory Management">
+         <menu>
+             <item
+                 android:title="Category"
+                 android:id="@+id/item3"
+                 />
+             <item
+                 android:title="Subcategory"
+                 android:id="@+id/item4"
+                 />
+             <item
+                 android:title="Units"
+                 android:id="@+id/item5"
+                 />
+             <item
+                 android:title="Products"
+                 android:id="@+id/item6"
+                 />
+         </menu>
+    </item>
+   <item android:title="Inquiry Management">
+         <menu>
+             <item
+                 android:title="Create inquiry"
+                 android:id="@+id/item7"
+                 />
+             <item
+                 android:title="View inquiry"
+                 android:id="@+id/item8"
+                 />
+         </menu>
+   </item>
+   <item android:title="Bids Management">
+<menu>
+    <item
+        android:title="Bids Received"
+        android:id="@+id/item10"
+        />
+</menu>
+   </item>
+    <item android:title="Logout">
+<menu>
+    <item
+        android:title="Logout"
+        android:id="@+id/item13"
+        android:icon="@drawable/ic_baseline_logout_24"
+        />
+</menu>
+    </item>
+</menu>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+    android:title="Home"
+    android:id="@+id/page1"
+    android:icon="@drawable/ic_baseline_home_243"
+    />
+    <item
+        android:title="Market"
+        android:icon="@drawable/market2"
+        android:id="@+id/page2"
+        />
+    <item
+        android:title="Trade"
+        android:icon="@drawable/trade1"
+        android:id="@+id/page3"
+        />
+    <item
+        android:title="Wallet"
+        android:icon="@drawable/wallet"
+        android:id="@+id/page4"
+        />
+</menu>

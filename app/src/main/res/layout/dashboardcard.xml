@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginBottom="10dp"
+    android:layout_height="wrap_content">
+         <androidx.cardview.widget.CardView
+             android:layout_width="50dp"
+             app:cardCornerRadius="25dp"
+             android:backgroundTint="@color/cardbgcolor"
+             android:layout_height="50dp">
+             <ImageView
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:scaleType="fitXY"
+                 android:id="@+id/cardimage1"/>
+         </androidx.cardview.widget.CardView>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+android:layout_gravity="center_vertical"
+    android:layout_marginLeft="10dp"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:id="@+id/subcategory"
+            android:text="Plain Fabric"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+           android:gravity="end"
+            android:textSize="12sp"
+            android:id="@+id/actualprice"
+            android:textColor="@color/black"
+            android:text="$149"
+            />
+    </LinearLayout>
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal">
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="5dp"
+         android:textSize="12sp"
+         android:id="@+id/category"
+         android:text="Greige Fabric"
+         />
+     <TextView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginRight="20dp"
+         android:gravity="end"
+         android:textSize="12sp"
+         android:id="@+id/initialprice"
+         android:layout_marginTop="5dp"
+         android:text="Greige Fabric"
+         />
+ </LinearLayout>
+</LinearLayout>
+</LinearLayout>

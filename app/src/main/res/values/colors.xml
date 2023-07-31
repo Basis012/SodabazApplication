@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#134EA8</color>
+    <color name="purple_700">#134EA8</color>
+    <color name="teal_200">#134EA8</color>
+    <color name="textcolor">#013047</color>
+    <color name="textcolor1">#8D99AE</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="appbgcolor">#FFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="jacket">#02930F</color>
+    <color name="cardbgcolor">#134EA8</color>
+    <color name="childcolor">#A9A9A9</color>
+    <color name="parentcolor">#232323</color>
+    <color name="dashboardcard">#062A60</color>
+</resources>
