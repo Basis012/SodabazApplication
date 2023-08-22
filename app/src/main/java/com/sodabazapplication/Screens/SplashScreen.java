@@ -14,10 +14,6 @@ import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.messaging.FirebaseMessaging;
 import com.sodabazapplication.PrefManager;
 import com.sodabazapplication.R;
 import com.sodabazapplication.UserDashboard.Dashboard;

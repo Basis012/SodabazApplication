@@ -54,11 +54,11 @@ android:fillViewport="true"
                 android:layout_marginTop="20dp"
                 app:cardCornerRadius="20dp"
                 android:layout_height="300dp">
-<!--                <ImageView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:scaleType="fitXY"-->
-<!--                    android:src="@drawable/slider1"/>-->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/slider1"/>
             </androidx.cardview.widget.CardView>
             <TextView
                 android:layout_width="match_parent"

@@ -89,6 +89,7 @@ public class DashboardFragment extends Fragment {
                     dashboard_data.addAll(data);
                     for (int i=0;i<data.size();i++){
                         Log.d(TAG, "my is: "+data.get(i).getTitle());
+                        Log.d(TAG,"ssssssss");
                     }
                     dashboardAdapter2.notifyDataSetChanged();
                     userAdapter.notifyDataSetChanged();

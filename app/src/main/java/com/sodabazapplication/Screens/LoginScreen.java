@@ -48,6 +48,7 @@ TextInputEditText forgetemail;
 Button submit;
 Endpoints endpoints;
 ProgressBar progressBar;
+ProgressBar dialog_progressbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +61,7 @@ ProgressBar progressBar;
                 Dialog dialog = new Dialog(this);
                 dialog.setContentView(R.layout.custom_dialog_box);
                 dismiss = dialog.findViewById(R.id.dismiss);
+            dialog_progressbar = dialog.findViewById(R.id.dialog_progressbar);
                 forgetemail = dialog.findViewById(R.id.forgetemail);
                 message = dialog.findViewById(R.id.message);
                 submit = dialog.findViewById(R.id.submit);
@@ -71,24 +73,31 @@ ProgressBar progressBar;
                         try {
                             String Forgetemail = forgetemail.getText().toString();
                             if (!Forgetemail.isEmpty()){
+                                dialog_progressbar.setVisibility(View.VISIBLE);
                                 ForgetPassword_ModelClass forget_payload = new ForgetPassword_ModelClass(Forgetemail);
                                 Call<Login_ModelClass> call = endpoints.forgetPassword(forget_payload);
                                 call.enqueue(new Callback<Login_ModelClass>() {
                                     @Override
                                     public void onResponse(Call<Login_ModelClass> call, Response<Login_ModelClass> response) {
                                         if (response.isSuccessful() && response.body()!=null){
+                                            dialog_progressbar.setVisibility(View.GONE);
                                             Login_ModelClass login_modelClass = response.body();
                                             Snackbar snackbar = Snackbar.make(view,"Done"+login_modelClass.getMethod(),Snackbar.LENGTH_LONG);
                                             snackbar.show();
                                             Log.d(TAG, "onResponse: "+login_modelClass.getStatus());
                                             Log.d(TAG, "onResponse: "+login_modelClass.getMethod());
                                             dialog.dismiss();
-
+                                        }
+                                        else {
+                                            dialog_progressbar.setVisibility(View.GONE);
+                                            Snackbar snackbar = Snackbar.make(view,"Invalid Email",Snackbar.LENGTH_LONG);
+                                            snackbar.show();
                                         }
                                     }
 
                                     @Override
                                     public void onFailure(Call<Login_ModelClass> call, Throwable t) {
+                                        dialog_progressbar.setVisibility(View.GONE);
                                         Snackbar snackbar = Snackbar.make(view,"In Onfailure",Snackbar.LENGTH_LONG);
                                         snackbar.show();
                                     }
@@ -100,6 +109,7 @@ ProgressBar progressBar;
                             }
                         }
                         catch (Exception e){
+                            dialog_progressbar.setVisibility(View.GONE);
                             Snackbar snackbar = Snackbar.make(view,"In Exception"+e.getMessage(),Snackbar.LENGTH_LONG);
                             snackbar.show();
                         }
@@ -129,7 +139,6 @@ ProgressBar progressBar;
     }
 
     public void submitdata(View view) {
-        recreate();
         String Email = email.getText().toString();
         String Password = password.getText().toString();
         if(Email.isEmpty()){

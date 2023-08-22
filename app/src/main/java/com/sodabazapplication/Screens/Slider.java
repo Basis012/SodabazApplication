@@ -19,28 +19,46 @@ ViewPager viewPager;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_slider);
-        PrefManager prefManager = new PrefManager(this);
-        if (prefManager.isFirstTimeLaunch()) {
-            // Show the introductory screen
-            setContentView(R.layout.fragment_first); // Replace with the layout containing the introductory screen
-            prefManager.setFirstTimeLaunch(false); // Set the flag to false to indicate the screen has been shown once
-        } else {
-            // The introductory screen has been shown before, proceed with your regular content
-            setContentView(R.layout.activity_login_screen); // Replace with your main layout
-        }
-
+        SharedPreferences onboard = getSharedPreferences("onboarding",Context.MODE_PRIVATE);
         SharedPreferences sharedPreferences = getSharedPreferences("login_data", Context.MODE_PRIVATE);
-        String checkUserStatus = sharedPreferences.getString("isUserLoggedIn", "");
-        if (checkUserStatus.equals("true")){
-            startActivity(new Intent(getApplicationContext(), Dashboard.class));
+        boolean hasShownOnboarding = onboard.getBoolean("hasShownOnboarding", false);
+        if (hasShownOnboarding){
+            String checkUserStatus = sharedPreferences.getString("isUserLoggedIn", "");
+
+            if (checkUserStatus.equals("true")) {
+                // User is logged in, go to the Dashboard
+                startActivity(new Intent(getApplicationContext(), Dashboard.class));
+            } else {
+                // User is not logged in, go to the login screen
+                startActivity(new Intent(getApplicationContext(), LoginScreen.class));
+            }
             finish();
         }
         else {
-            startActivity(new Intent(getApplicationContext(),LoginScreen.class));
+            getSupportActionBar().hide();
+
+            // Initialize ViewPager and set up the adapter
+            viewPager = findViewById(R.id.viewpager);
+            IntroAdapter adapter = new IntroAdapter(getSupportFragmentManager());
+            viewPager.setAdapter(adapter);
+
+            // Set the flag to indicate that onboarding has been shown
+            SharedPreferences.Editor editor = onboard.edit();
+            editor.putBoolean("hasShownOnboarding", true);
+            editor.apply();
         }
-        viewPager = findViewById(R.id.viewpager);
-        getSupportActionBar().hide();
-        IntroAdapter adapter = new IntroAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(adapter);
+
+//            if (checkUserStatus.equals("true")){
+//                startActivity(new Intent(getApplicationContext(), Dashboard.class));
+//                finish();
+//            }
+//            else {
+//                startActivity(new Intent(getApplicationContext(),LoginScreen.class));
+//                viewPager = findViewById(R.id.viewpager);
+//                getSupportActionBar().hide();
+//                IntroAdapter adapter = new IntroAdapter(getSupportFragmentManager());
+//                viewPager.setAdapter(adapter);
+//            }
+
     }
 }
